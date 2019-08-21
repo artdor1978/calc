@@ -1,26 +1,141 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 
-function App() {
+const elementsArr = [
+  {
+  sign: "=",
+  title: "equals",
+  id:0,
+  },
+  {
+  sign: "1",
+  title:  "one",
+  id:2,
+  },
+  {
+  sign: "2",
+  title:  "two",
+  id:3,
+  },
+  {
+  sign: "3",
+  title:  "three",
+  id:4,
+  },
+  {
+  sign: "4",
+  title:  "four",
+  id:5,
+  },
+  {
+  sign: "5",
+  title:  "five",
+  id:6,
+  },
+  {
+  sign: "6",
+  title:  "six",
+  id:7,
+  },
+  {
+  sign: "7",
+  title:  "seven",
+  id:8,
+  },
+  {
+  sign: "8",
+  title:  "eight",
+  id:9,
+  },
+  {
+  sign: "9",
+  title:  "nine",
+  id:10,
+  },
+  {
+  sign: "0",
+  title: "zero",
+  id:1,
+  },
+  {
+  sign: "+",
+  title:  "add",
+  id:11,
+  },
+  {
+  sign: "-",
+  title:  "subtract",
+  id:12,
+  },
+  {
+  sign: "*",
+  title:  "multiply",
+  id:13,
+  },
+  {
+  sign: "/",
+  title:  "divide",
+  id:14,
+  },
+  {
+  sign: ".",
+  title:  "decimal",
+  id:15,
+  },
+  {
+  sign: "clear",
+  title:  "clear",
+  id:16,
+  },
+];
+
+  
+    // {elementsArr.map (item => 
+    //       <div key={item.id}>
+    //         <button id={item.title}>{item.sign}</button>
+    //       </div>
+    //     )}
+    // </div>
+
+const Elements = (props) => {
+  return (
+    <div className={props.z}>
+      {props.xxx.map (item =>
+      <div key={item.id}> 
+        <button id={item.title}>{item.sign}</button>
+      </div>
+      )}
+    </div>
+    )
+}
+
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+    elementsArr,
+    };
+  }
+  render() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <input id="display" />
+      <span id="numbers">
+        <Elements  xxx={this.state.elementsArr.filter(item => item.id>0&item.id<11||item.id==15)} z='num'/>
+      </span>
+      <span id="clearKey">
+        <Elements  xxx={this.state.elementsArr.filter(item => item.id==16)} z='cle'/>
+      </span>
+      <span id="operators">
+        <Elements  xxx={this.state.elementsArr.filter(item => item.id>10&item.id<15)} z='ope'/>
+      </span>
+      <span id="equalsKey">
+      <Elements  xxx={this.state.elementsArr.filter(item => item.id==0)} z='equ'/>
+      </span>
     </div>
-  );
+  )
 }
+}
+
 
 export default App;
