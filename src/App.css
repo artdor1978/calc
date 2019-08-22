@@ -1,25 +1,41 @@
 body{ 
   background: #CFD8DC; 
+  font-family: 'Roboto Slab', serif;
+  text-align: center;
+  height: 100vh;
  } 
- .App { 
+
+#calc { 
   display: grid; 
     grid-gap: 5px; 
-    grid-template-columns: repeat(4, minmax(10px, 100px));
-    grid-template-rows: repeat(5, 1fr); 
+    grid-template-columns: repeat(4, minmax(10px, 45px));
+    grid-auto-rows: repeat(5, auto); 
     justify-content: center; 
     align-content: center; 
     margin: 0 auto; 
-    height: 100vh; 
+    height: 75vh; 
     font-family: 'Open Sans', sans-serif;
- } 
- button {
+    font-size: 2em;
+  } 
+ .button {
   background-color: #607D8B;
-  color: #FFFFFF;
-  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  color: #ffeead;
+  border-radius: 50%;
+}
+.button:hover {
+  color: #58737E;
+  border-color: currentColor;
+  background-color: white;
 }
  #display {
   grid-column: 1 / 6;
- }
+  background-color: #9E9E9E;
+  /*resize: none;*/
+}
  #numbers {
   grid-column: 1 / 4;
   grid-row: 2 / 5;
@@ -29,8 +45,10 @@ body{
 }
 .ope,.num  {
   display: grid;
-  grid-template-columns: repeat(2, minmax(100px, 1fr));  
+  grid-template-columns: repeat(2, minmax(10px, 1fr)); 
+  grid-gap: 5px;  
   }
 #clearKey, #equalsKey{
   grid-column: 4 / 6;
 }
+

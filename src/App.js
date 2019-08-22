@@ -102,7 +102,7 @@ const Elements = (props) => {
     <div className={props.z}>
       {props.xxx.map (item =>
       <div key={item.id}> 
-        <button id={item.title}>{item.sign}</button>
+        <div className="button" id={item.title}>{item.sign}</div>
       </div>
       )}
     </div>
@@ -114,24 +114,35 @@ class App extends React.Component {
     super(props);
     this.state = {
     elementsArr,
+    message:'sdddddddd',
     };
+    this.handleClick = this.handleClick.bind(this);
+  }
+  handleClick() {
+    this.setState({
+      message: 0
+    })
   }
   render() {
   return (
     <div className="App">
-      <input id="display" />
-      <span id="numbers">
-        <Elements  xxx={this.state.elementsArr.filter(item => item.id>0&item.id<11||item.id==15)} z='num'/>
-      </span>
-      <span id="clearKey">
-        <Elements  xxx={this.state.elementsArr.filter(item => item.id==16)} z='cle'/>
-      </span>
-      <span id="operators">
-        <Elements  xxx={this.state.elementsArr.filter(item => item.id>10&item.id<15)} z='ope'/>
-      </span>
-      <span id="equalsKey">
-      <Elements  xxx={this.state.elementsArr.filter(item => item.id==0)} z='equ'/>
-      </span>
+      <h1>JS Calculator</h1>
+      <div id="calc">
+      <div id="display">{this.state.message}</div>
+        <span id="numbers">
+          <Elements  xxx={this.state.elementsArr.filter(item => item.id>0&item.id<11||item.id==15)} z='num'/>
+        </span>
+        <span id="clearKey" onClick={this.handleClick}>
+          <Elements xxx={this.state.elementsArr.filter(item => item.id==16)} z='cle' onClick={this.handleClick}/>
+        </span>
+        <span id="operators">
+          <Elements  xxx={this.state.elementsArr.filter(item => item.id>10&item.id<15)} z='ope'/>
+        </span>
+        <span id="equalsKey">
+        <Elements  xxx={this.state.elementsArr.filter(item => item.id==0)} z='equ'/>
+        </span>
+      </div>
+      <h6 >artdor1978</h6>
     </div>
   )
 }
