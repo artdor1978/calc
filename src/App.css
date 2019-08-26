@@ -34,7 +34,8 @@ body{
  #display {
   grid-column: 1 / 6;
   background-color: #9E9E9E;
-  /*resize: none;*/
+  text-align: right;
+  color: #F5F5F5;
 }
  #numbers {
   grid-column: 1 / 4;

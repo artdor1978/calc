@@ -89,20 +89,12 @@ const elementsArr = [
   },
 ];
 
-  
-    // {elementsArr.map (item => 
-    //       <div key={item.id}>
-    //         <button id={item.title}>{item.sign}</button>
-    //       </div>
-    //     )}
-    // </div>
-
 const Elements = (props) => {
   return (
     <div className={props.z}>
       {props.xxx.map (item =>
       <div key={item.id}> 
-        <div className="button" id={item.title}>{item.sign}</div>
+        <div className="button" id={item.title} onClick={() => props.inpNum(item.sign)}>{item.sign}</div>
       </div>
       )}
     </div>
@@ -114,11 +106,18 @@ class App extends React.Component {
     super(props);
     this.state = {
     elementsArr,
-    message:'sdddddddd',
+    message:'0',
     };
-    this.handleClick = this.handleClick.bind(this);
+    this.handleClickNum = this.handleClickNum.bind(this);
+    this.handleClickClear = this.handleClickClear.bind(this);
   }
-  handleClick() {
+  handleClickNum(e) {
+    const updDisplay = this.state.message;
+    this.setState({
+      message: updDisplay+e,
+    })
+  }
+  handleClickClear(e) {
     this.setState({
       message: 0
     })
@@ -130,10 +129,10 @@ class App extends React.Component {
       <div id="calc">
       <div id="display">{this.state.message}</div>
         <span id="numbers">
-          <Elements  xxx={this.state.elementsArr.filter(item => item.id>0&item.id<11||item.id==15)} z='num'/>
+          <Elements  xxx={this.state.elementsArr.filter(item => item.id>0&item.id<11||item.id==15)} z='num' inpNum={this.handleClickNum}/>
         </span>
-        <span id="clearKey" onClick={this.handleClick}>
-          <Elements xxx={this.state.elementsArr.filter(item => item.id==16)} z='cle' onClick={this.handleClick}/>
+        <span id="clearKey">
+          <Elements xxx={this.state.elementsArr.filter(item => item.id==16)} z='cle' inpNum={this.handleClickClear}/>
         </span>
         <span id="operators">
           <Elements  xxx={this.state.elementsArr.filter(item => item.id>10&item.id<15)} z='ope'/>
