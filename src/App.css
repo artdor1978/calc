@@ -8,12 +8,12 @@ body{
 #calc { 
   display: grid; 
     grid-gap: 5px; 
-    grid-template-columns: repeat(4, minmax(10px, 45px));
+    grid-template-columns: repeat(4, minmax(auto, 45px));
     grid-auto-rows: repeat(5, auto); 
     justify-content: center; 
     align-content: center; 
     margin: 0 auto; 
-    height: 75vh; 
+    height: 75vh;
     font-family: 'Open Sans', sans-serif;
     font-size: 2em;
   } 

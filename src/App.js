@@ -110,16 +110,21 @@ class App extends React.Component {
     };
     this.handleClickNum = this.handleClickNum.bind(this);
     this.handleClickClear = this.handleClickClear.bind(this);
+    this.handleClickRes = this.handleClickRes.bind(this);
   }
   handleClickNum(e) {
     const updDisplay = this.state.message;
-    this.setState({
-      message: updDisplay+e,
-    })
+    updDisplay == 0 ? this.setState({message: e,}):this.setState({message: updDisplay+e,})
   }
   handleClickClear(e) {
     this.setState({
       message: 0
+    })
+  }
+  handleClickRes(e) {
+    const updDisplay = this.state.message;
+    this.setState({
+      message: parseFloat(eval(updDisplay.replace(/\.+/g, '.')).toFixed(4))
     })
   }
   render() {
@@ -135,10 +140,10 @@ class App extends React.Component {
           <Elements xxx={this.state.elementsArr.filter(item => item.id==16)} z='cle' inpNum={this.handleClickClear}/>
         </span>
         <span id="operators">
-          <Elements  xxx={this.state.elementsArr.filter(item => item.id>10&item.id<15)} z='ope'/>
+          <Elements  xxx={this.state.elementsArr.filter(item => item.id>10&item.id<15)} z='ope' inpNum={this.handleClickNum}/>
         </span>
         <span id="equalsKey">
-        <Elements  xxx={this.state.elementsArr.filter(item => item.id==0)} z='equ'/>
+        <Elements  xxx={this.state.elementsArr.filter(item => item.id==0)} z='equ' inpNum={this.handleClickRes}/>
         </span>
       </div>
       <h6 >artdor1978</h6>
