@@ -114,7 +114,8 @@ class App extends React.Component {
   }
   handleClickNum(e) {
     const updDisplay = this.state.message;
-    updDisplay == 0 ? this.setState({message: e,}): (updDisplay[updDisplay.length-1] === '.' ? (e === "." ? this.setState({message: updDisplay,}):this.setState({message: updDisplay+e,})):this.setState({message: updDisplay+e,}))
+    //updDisplay == 0 ? this.setState({message: e,}): (updDisplay[updDisplay.length-1] === '.' ? (e === "." ? this.setState({message: updDisplay,}):this.setState({message: updDisplay+e,})):this.setState({message: updDisplay+e,}))
+    updDisplay == 0 ? this.setState({message: e,}) : this.setState({message: updDisplay+e,})
   //https://stackoverflow.com/questions/7959975/how-to-replace-all-but-the-first-occurrence-of-a-pattern-in-string
   }
   handleClickClear(e) {
@@ -123,9 +124,10 @@ class App extends React.Component {
     })
   }
   handleClickRes(e) {
-    const updDisplay = this.state.message;
+    const updDisplay = this.state.message
     this.setState({
-      message: parseFloat(eval(updDisplay.replace(/\.+/g, '.')).toFixed(4))
+      //message: parseFloat(eval(updDisplay.replace(/\.+/g, '.')).toFixed(4))
+      message: parseFloat(eval(updDisplay).toFixed(4)),
     })
   }
   render() {
