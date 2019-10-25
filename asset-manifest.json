@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/artdor1978/calc/static/css/main.5c81232a.chunk.css",
+    "main.js": "/artdor1978/calc/static/js/main.10beed2b.chunk.js",
+    "main.js.map": "/artdor1978/calc/static/js/main.10beed2b.chunk.js.map",
+    "runtime~main.js": "/artdor1978/calc/static/js/runtime~main.a4396a3e.js",
+    "runtime~main.js.map": "/artdor1978/calc/static/js/runtime~main.a4396a3e.js.map",
+    "static/js/2.69cba481.chunk.js": "/artdor1978/calc/static/js/2.69cba481.chunk.js",
+    "static/js/2.69cba481.chunk.js.map": "/artdor1978/calc/static/js/2.69cba481.chunk.js.map",
+    "index.html": "/artdor1978/calc/index.html",
+    "precache-manifest.30ea95a94ffe7b3bf5708a888cd5f8c2.js": "/artdor1978/calc/precache-manifest.30ea95a94ffe7b3bf5708a888cd5f8c2.js",
+    "service-worker.js": "/artdor1978/calc/service-worker.js",
+    "static/css/main.5c81232a.chunk.css.map": "/artdor1978/calc/static/css/main.5c81232a.chunk.css.map"
+  }
+}
